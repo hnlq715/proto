@@ -1,5 +1,5 @@
 syntax = "proto3";
-package cmc.register;
+package com.company.cmc;
 
 option go_package="cmc";
 
