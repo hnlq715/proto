@@ -1,36 +1,34 @@
 syntax = "proto3";
-package com.company.cmc;
 
-option go_package="cmc";
+package company.cmc;
+
+option go_package = "cmcpb";
+option java_multiple_files = true;
+option java_outer_classname = "RegisterProto";
+option java_package = "com.company.cmc";
 
 service Register {
-    // Add 注册节点
-    rpc Add(AddRequest) returns (stream AddResponse) {
-    }
-
-    // List 获取已注册服务
-    rpc List(ListRequest) returns (ListResponse) {
-    }
+  // Register 注册节点
+  rpc Register(RegisterRequest) returns (stream RegisterResponse);
+  // List 获取已注册服务
+  rpc List(ListRequest) returns (ListResponse);
 }
 
-message AddRequest {
-    string cluster = 1;
-    uint32 appid = 2;
-    string address = 3;
+message RegisterRequest {
+  string cluster = 1;
+  uint32 appid = 2;
 }
 
-message AddResponse {
-    uint32 notify = 1;
+message RegisterResponse {
+  uint32 notify = 1;
 }
 
 message ListRequest {
-    repeated uint32 appid = 3;
+  repeated uint32 appid = 3;
 }
 
-message Node {
-    string address = 1;
-}
+message Node {}
 
 message ListResponse {
-    repeated Node nodes = 1;
+  repeated Node nodes = 1;
 }

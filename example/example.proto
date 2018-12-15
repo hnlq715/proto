@@ -1,14 +1,20 @@
 syntax = "proto3";
-package com.company.base;
 
-option go_package="example";
+package company.example;
 
-service Example{
-    rpc Hello(HelloReq) returns (HelloRes){};
+option go_package = "examplepb";
+option java_multiple_files = true;
+option java_outer_classname = "ExampleProto";
+option java_package = "com.company.example";
+
+service Example {
+  rpc Hello(HelloReq) returns (HelloRes);
 }
+
 message HelloReq {
-    string name=1;
+  string name = 1;
 }
+
 message HelloRes {
-    string msg=1;
+  string msg = 1;
 }

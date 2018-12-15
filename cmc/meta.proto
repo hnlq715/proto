@@ -1,18 +1,21 @@
 syntax = "proto3";
-package com.company.cmc;
 
-option go_package="cmc";
+package company.cmc;
+
+option go_package = "cmcpb";
+option java_multiple_files = true;
+option java_outer_classname = "MetaProto";
+option java_package = "com.company.cmc";
 
 service Meta {
-    // Get 获取配置
-    rpc Get(GetRequest) returns (GetResponse) {
-    }
+  // Get 获取配置
+  rpc Get(GetRequest) returns (GetResponse);
 }
 
 message GetRequest {
-    uint32 app_id = 1;
+  uint32 app_id = 1;
 }
 
 message GetResponse {
-    string raw = 1;
+  string raw = 1;
 }
