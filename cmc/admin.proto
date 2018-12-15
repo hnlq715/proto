@@ -1,0 +1,46 @@
+syntax = "proto3";
+package cmc.admin;
+
+option go_package="cmc";
+
+service Admin {
+    // Add 新增配置
+    rpc Add(AddRequest) returns (AddResponse) {
+    }
+    // Modify 修改配置
+    rpc Modify(ModifyRequest) returns (ModifyResponse) {
+    }
+    // Delete 删除配置
+    rpc Delete(DeleteRequest) returns (DeleteResponse) {
+    }
+}
+
+message AddRequest {
+    uint32 app_id = 1;
+    string cluster = 2;
+    string raw = 3;
+}
+
+message AddResponse {
+    string raw = 1;
+}
+
+message ModifyRequest {
+    uint32 app_id = 1;
+    string cluster = 2;
+    string raw = 3;
+}
+
+message ModifyResponse {
+    string raw = 1;
+}
+
+message DeleteRequest {
+    uint32 app_id = 1;
+    string cluster = 2;
+    string raw = 3;
+}
+
+message DeleteResponse {
+    string raw = 1;
+}

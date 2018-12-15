@@ -1,0 +1,18 @@
+syntax = "proto3";
+package cmc.meta;
+
+option go_package="cmc";
+
+service Meta {
+    // Get 获取配置
+    rpc Get(GetRequest) returns (GetResponse) {
+    }
+}
+
+message GetRequest {
+    uint32 app_id = 1;
+}
+
+message GetResponse {
+    string raw = 1;
+}

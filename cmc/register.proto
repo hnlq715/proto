@@ -1,0 +1,36 @@
+syntax = "proto3";
+package cmc.register;
+
+option go_package="cmc";
+
+service Register {
+    // Add 注册节点
+    rpc Add(AddRequest) returns (stream AddResponse) {
+    }
+
+    // List 获取已注册服务
+    rpc List(ListRequest) returns (ListResponse) {
+    }
+}
+
+message AddRequest {
+    string cluster = 1;
+    uint32 appid = 2;
+    string address = 3;
+}
+
+message AddResponse {
+    uint32 notify = 1;
+}
+
+message ListRequest {
+    repeated uint32 appid = 3;
+}
+
+message Node {
+    string address = 1;
+}
+
+message ListResponse {
+    repeated Node nodes = 1;
+}

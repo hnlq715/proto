@@ -1,0 +1,14 @@
+syntax = "proto3";
+package com.company.base;
+
+option go_package="example";
+
+service Example{
+    rpc Hello(HelloReq) returns (HelloRes){};
+}
+message HelloReq {
+    string name=1;
+}
+message HelloRes {
+    string msg=1;
+}
